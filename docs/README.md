@@ -28,12 +28,12 @@ This project was developed by [João Leite](https://github.com/Jopamoleite) (up2
  ### Menu
 
  The menu is shown when the game starts, after the user presses Enter in the controls screen. On the menu, the player is free to walk and is able to select the Game he wants to play by pressing the Enter key on top of one of the level's sectors. Each sector corresponds to a fixed level.
- Screenshot of the Menu:![ ](https://github.com/FEUP-LPOO/projecto-lpoo-2019-lpoo_13/blob/master/docs/images/Menu.png "Menu")
+ Screenshot of the Menu:![ ](https://github.com/Jopamoleite/LPOO-PROJ_1819/blob/master/docs/images/Menu.png "Menu")
 
  ### Battle Tanks
 
  This mini-game (which can be played by selecting the red sector on the menu) is a shooter game. There are four enemies who move around and shoot red bullets, and the player must kill them by shooting at them, while trying to dodge their bullets. The player has three lives, and loses one everytime it collides with a red bullet or with an enemy. 500 points are won everytime the player kills an enemy, and when 2000 points are reached (when all enemies have been killed), an orange area shows up in the middle of the map; to win the game, the player must go to this area an press Enter.
- Screenshot of the Game:![ ](https://github.com/FEUP-LPOO/projecto-lpoo-2019-lpoo_13/blob/master/docs/images/BattleTanks.png "BattleTanks")
+ Screenshot of the Game:![ ](https://github.com/Jopamoleite/LPOO-PROJ_1819/blob/master/docs/images/BattleTanks.png "BattleTanks")
 
  ### Shooting
 
@@ -42,7 +42,7 @@ This project was developed by [João Leite](https://github.com/Jopamoleite) (up2
  ### Light Cycles
  
  In this mini-game (which can be played by selecting the orange sector on the menu) there are two characters: the player and an enemy. Both leave trails behind as they move, and the goal is to survive for as long as possible without touching neither the trails or the map walls.
- Screenshot of the LightCycles:![ ](https://github.com/FEUP-LPOO/projecto-lpoo-2019-lpoo_13/blob/master/docs/images/LightCycles.png "LightCycles")
+ Screenshot of the LightCycles:![ ](https://github.com/Jopamoleite/LPOO-PROJ_1819/blob/master/docs/images/LightCycles.png "LightCycles")
   
  ### Light Cycles Enemy Movement
 
@@ -54,13 +54,13 @@ This project was developed by [João Leite](https://github.com/Jopamoleite) (up2
   ### I/O Tower
 
  Game logic for I/O Tower mini-game, not yet implemented for this delivery due to lack of time.
- Rough sketch of the intended GUI:![ ](https://github.com/FEUP-LPOO/projecto-lpoo-2019-lpoo_13/blob/master/docs/images/IOTower.png "IO Tower")
+ Rough sketch of the intended GUI:![ ](https://github.com/Jopamoleite/LPOO-PROJ_1819/blob/master/docs/images/IOTower.png "IO Tower")
  
 
   ### MCP Cone
 
  Game logic for MCP Cone mini-game, not yet implemented for this delivery due to lack of time.
- Rough sketch of the intended GUI:![ ](https://github.com/FEUP-LPOO/projecto-lpoo-2019-lpoo_13/blob/master/docs/images/MCPCone.png "MCP Cone")
+ Rough sketch of the intended GUI:![ ](https://github.com/Jopamoleite/LPOO-PROJ_1819/blob/master/docs/images/MCPCone.png "MCP Cone")
 
   
 
@@ -87,7 +87,7 @@ This project was developed by [João Leite](https://github.com/Jopamoleite) (up2
  This pattern is the base of the whole project architecture, and its implementation is clear in most classes. The project is mainly divided in three packages: model, view and controller, that correspond to the three MVC parts.
 
  The following figure, based on the one from the LPOO lectures slides, shows an example of the implementation of the MVC for the player.
- ![ ](https://github.com/FEUP-LPOO/projecto-lpoo-2019-lpoo_13/blob/master/docs/images/MVC.png "MVC")
+ ![ ](https://github.com/Jopamoleite/LPOO-PROJ_1819/blob/master/docs/images/MVC.png "MVC")
 
 
  ### Consequences
@@ -115,7 +115,7 @@ This project was developed by [João Leite](https://github.com/Jopamoleite) (up2
 
  The following picture shows how the pattern was implemented. The "Context" is the LevelManagerController, the "State" is the GameController, and the "Concrete States" are all the other classes (that implement the GameController interface).
 
- ![ ](https://github.com/FEUP-LPOO/projecto-lpoo-2019-lpoo_13/blob/master/docs/images/State.png "State Pattern")
+ ![ ](https://github.com/Jopamoleite/LPOO-PROJ_1819/blob/master/docs/images/State.png "State Pattern")
 
  These classes can be found in the following files:
 
@@ -160,7 +160,7 @@ This project was developed by [João Leite](https://github.com/Jopamoleite) (up2
 
  The following picture shows how the pattern was implemented. The "Context" is the LevelManagerController, the "Strategy" is the GameController, and the "Concrete Strategies" are all the other classes (that implement the GameController interface).
 
- ![ ](https://github.com/FEUP-LPOO/projecto-lpoo-2019-lpoo_13/blob/master/docs/images/State.png "Strategy Pattern")
+ ![ ](https://github.com/Jopamoleite/LPOO-PROJ_1819/blob/master/docs/images/State.png "Strategy Pattern")
 
  These classes can be found in the following files:
 
@@ -203,7 +203,7 @@ This project was developed by [João Leite](https://github.com/Jopamoleite) (up2
 
  The following picture shows how the pattern was implemented.
 
- ![ ](https://github.com/FEUP-LPOO/projecto-lpoo-2019-lpoo_13/blob/master/docs/images/Observer.png "Observer Pattern")
+ ![ ](https://github.com/Jopamoleite/LPOO-PROJ_1819/blob/master/docs/images/Observer.png "Observer Pattern")
 
  These classes can be found in the following files:
 
@@ -237,7 +237,7 @@ This project was developed by [João Leite](https://github.com/Jopamoleite) (up2
 
  The following picture shows how the pattern was implemented.
 
- ![ ](https://github.com/FEUP-LPOO/projecto-lpoo-2019-lpoo_13/blob/master/docs/images/EnemyFactory.png "Enemy Factory")
+ ![ ](https://github.com/Jopamoleite/LPOO-PROJ_1819/blob/master/docs/images/EnemyFactory.png "Enemy Factory")
 
  These classes can be found in the following files:
 
@@ -277,15 +277,15 @@ This project was developed by [João Leite](https://github.com/Jopamoleite) (up2
 ## Testing Results
 
  The application passes all the 63 unit tests implemented, as seen on the screenshot below.
- ![ ](https://github.com/FEUP-LPOO/projecto-lpoo-2019-lpoo_13/blob/master/docs/images/Tests.png "Test Results")
+ ![ ](https://github.com/Jopamoleite/LPOO-PROJ_1819/blob/master/docs/images/Tests.png "Test Results")
  
  Unit tests coverage:
 
- ![ ](https://github.com/FEUP-LPOO/projecto-lpoo-2019-lpoo_13/blob/master/docs/images/TestCoverageUnit.png "Unit Test Coverage")
+ ![ ](https://github.com/Jopamoleite/LPOO-PROJ_1819/blob/master/docs/images/TestCoverageUnit.png "Unit Test Coverage")
 
  Mutation testing was also done. The coverage results are presented below, and the full report can be found [here](pitest/). The low coverage can be partially explained by the lack of tests that cover the View package and private methods.
 
- ![ ](https://github.com/FEUP-LPOO/projecto-lpoo-2019-lpoo_13/blob/master/docs/images/TestCoverageMutation.png "Mutation Test Coverage")
+ ![ ](https://github.com/Jopamoleite/LPOO-PROJ_1819/blob/master/docs/images/TestCoverageMutation.png "Mutation Test Coverage")
 
   
 
