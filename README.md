@@ -10,11 +10,11 @@ By: João Leite (up201705312@fe.up.pt) and Márcia Teixeira (up201706065@fe.up.p
 
 ## Screenshots
 
-Screenshot of the Menu:![ ](https://github.com/FEUP-LPOO/projecto-lpoo-2019-lpoo_13/blob/master/docs/images/Menu.png "Menu")
+Screenshot of the Menu:![ ](https://github.com/Jopamoleite/LPOO-PROJ_1819/blob/master/docs/images/Menu.png "Menu")
 
-Screenshot of the Game:![ ](https://github.com/FEUP-LPOO/projecto-lpoo-2019-lpoo_13/blob/master/docs/images/BattleTanks.png "BattleTanks")
+Screenshot of the Game:![ ](https://github.com/Jopamoleite/LPOO-PROJ_1819/blob/master/docs/images/BattleTanks.png "BattleTanks")
 
-Screenshot of the LightCycles:![ ](https://github.com/FEUP-LPOO/projecto-lpoo-2019-lpoo_13/blob/master/docs/images/LightCycles.png "LightCycles")
+Screenshot of the LightCycles:![ ](https://github.com/Jopamoleite/LPOO-PROJ_1819/blob/master/docs/images/LightCycles.png "LightCycles")
 
 ## Install Instructions
 
