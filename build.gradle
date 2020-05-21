@@ -1,0 +1,28 @@
+plugins {
+    id 'java'
+    id 'application'
+    id 'info.solidsoft.pitest' version '1.4.0'
+}
+
+group 'com.lpoo_13.quadrivium'
+version '1.0-SNAPSHOT'
+
+pitest {
+    targetClasses = ['com.lpoo_13.quadrivium.*']
+}
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    testCompile group: 'org.mockito', name: 'mockito-core', version: '2.24.5'
+    compile group: 'com.googlecode.lanterna', name: 'lanterna', version: '3.0.1'
+}
+
+application {
+    mainClassName = 'Application'
+}
