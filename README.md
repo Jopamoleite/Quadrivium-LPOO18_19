@@ -34,7 +34,7 @@ By: João Leite (up201705312@fe.up.pt) and Márcia Teixeira (up201706065@fe.up.p
  ### Menu
 
  Menu stores and displays the game's menu, where the player is free to walk and is able to select the Game he wants to play by pressing the Enter key on top of one of the level's sectors. Each sector corresponds to a fixed level.
- Screenshot of the Menu:![enter image description here](https://github.com/FEUP-LPOO/projecto-lpoo-2019-lpoo_13/blob/master/docs/images/Menu.png "Menu")
+ Screenshot of the Menu:![enter image description here](https://github.com/Jopamoleite/LPOO-PROJ_1819/blob/master/docs/images/Menu.png "Menu")
 
   
   
@@ -47,14 +47,14 @@ By: João Leite (up201705312@fe.up.pt) and Márcia Teixeira (up201706065@fe.up.p
 
  Game logic for Battle Tanks mini-game, to be implemented in the future.
  Rough sketch of the intended GUI:
-![enter image description here](https://github.com/FEUP-LPOO/projecto-lpoo-2019-lpoo_13/blob/master/docs/images/BattleTanks.png "Battle Tanks")
+![enter image description here](https://github.com/Jopamoleite/LPOO-PROJ_1819/blob/master/docs/images/BattleTanks.png "Battle Tanks")
 
   
 
   ### I/O Tower
 
  Game logic for I/O Tower mini-game, to be implemented in the future.
- Rough sketch of the intended GUI:![enter image description here](https://github.com/FEUP-LPOO/projecto-lpoo-2019-lpoo_13/blob/master/docs/images/IOTower.png "IO Tower")
+ Rough sketch of the intended GUI:![enter image description here](https://github.com/Jopamoleite/LPOO-PROJ_1819/blob/master/docs/images/IOTower.png "IO Tower")
 
   
 
@@ -62,13 +62,13 @@ By: João Leite (up201705312@fe.up.pt) and Márcia Teixeira (up201706065@fe.up.p
 
  Game logic for Light Cycles mini-game, to be implemented in the future.
  Rough sketch of the intended GUI:
-![enter image description here](https://github.com/FEUP-LPOO/projecto-lpoo-2019-lpoo_13/blob/master/docs/images/LightCycles.png "Light Cycles")
+![enter image description here](https://github.com/Jopamoleite/LPOO-PROJ_1819/blob/master/docs/images/LightCycles.png "Light Cycles")
   
 
   ### MCP Cone
 
  Game logic for MCP Cone mini-game, to be implemented in the future.
- Rough sketch of the intended GUI:![enter image description here](https://github.com/FEUP-LPOO/projecto-lpoo-2019-lpoo_13/blob/master/docs/images/MCPCone.png "MCP Cone")
+ Rough sketch of the intended GUI:![enter image description here](https://github.com/Jopamoleite/LPOO-PROJ_1819/blob/master/docs/images/MCPCone.png "MCP Cone")
 
   
 
@@ -166,7 +166,7 @@ By: João Leite (up201705312@fe.up.pt) and Márcia Teixeira (up201706065@fe.up.p
   
  As of this intermediate, some unit tests have been implemented for general user inputs. Mutation testing and test coverage have not been done yet.
  Test Results:
- ![enter image description here](https://github.com/FEUP-LPOO/projecto-lpoo-2019-lpoo_13/blob/master/docs/images/Tests.png "Test Results")
+ ![enter image description here](https://github.com/Jopamoleite/LPOO-PROJ_1819/blob/master/docs/images/Tests.png "Test Results")
 
 
   
