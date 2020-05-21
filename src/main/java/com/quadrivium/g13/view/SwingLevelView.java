@@ -45,7 +45,6 @@ public class SwingLevelView implements KeyListener {
                 return;
             case KeyEvent.VK_ESCAPE:
                 keyPressed = KeyPress.EXIT;
-                return;
         }
     }
 
@@ -54,7 +53,7 @@ public class SwingLevelView implements KeyListener {
 
     }
 
-    public KeyPress getAndResetKey() {
+    public KeyPress getAndResetKey(){
         KeyPress key = keyPressed;
         keyPressed = KeyPress.NO_KEY;
         return key;

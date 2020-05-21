@@ -8,7 +8,7 @@ import com.quadrivium.g13.model.GameScreen;
 import com.quadrivium.g13.model.Position;
 
 public class LanternaPlayerView implements PlayerView {
-    public void draw(Position playerPosition) {
+    public void draw(Position playerPosition){
         TextGraphics graphics = GameScreen.getScreen().newTextGraphics();
         graphics.setBackgroundColor(TextColor.Factory.fromString("#000000"));
         graphics.setForegroundColor(TextColor.Factory.fromString("#F0F000"));

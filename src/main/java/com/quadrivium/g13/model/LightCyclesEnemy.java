@@ -1,10 +1,12 @@
 package com.quadrivium.g13.model;
 
-public class LightCyclesEnemy extends Element {
+import com.quadrivium.g13.exceptions.OutOfBoundsException;
+
+public class LightCyclesEnemy extends Enemy{
 
     private boolean alive;
 
-    public LightCyclesEnemy(Position position) {
+    public LightCyclesEnemy(Position position) throws OutOfBoundsException {
         this.setPosition(position);
         this.alive = true;
     }

@@ -6,8 +6,6 @@ import java.io.IOException;
 
 public interface IOTowerView {
     KeyPress processKey() throws IOException;
-
     void refreshScreen() throws IOException;
-
     void clearScreen();
 }

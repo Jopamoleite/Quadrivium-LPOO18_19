@@ -1,7 +1,7 @@
 import com.quadrivium.g13.controller.LevelManagerController;
-import com.quadrivium.g13.model.CreateGame;
-import com.quadrivium.g13.model.GameDimensions;
-import com.quadrivium.g13.model.LevelManager;
+import com.quadrivium.g13.exceptions.InvalidGameException;
+import com.quadrivium.g13.exceptions.OutOfBoundsException;
+import com.quadrivium.g13.model.*;
 import com.quadrivium.g13.view.LanternaLevelManagerView;
 import com.quadrivium.g13.view.LevelManagerView;
 import com.quadrivium.g13.view.SwingLevelManagerView;
@@ -11,29 +11,41 @@ import java.io.IOException;
 public class Application {
     public static void main(String[] args) {
 
-        if (args.length != 0) {
-            if (args[0].equals("swing")) {
+        if(args.length != 0){
+            if(args[0].equals("swing")){
                 GameDimensions.setSwing(true);
             }
-        } else { //default
+        }else{ //default
             GameDimensions.setSwing(false);
         }
 
         CreateGame game = new CreateGame();
         game.initGame();
-        LevelManager levelManager = new LevelManager();
+        LevelManager levelManager;
+        try {
+            levelManager = new LevelManager();
+        } catch (OutOfBoundsException e) {
+            e.printStackTrace();
+            return;
+        }
         LevelManagerView view;
-        if (GameDimensions.isSwing()) {
+        if(GameDimensions.isSwing()){
             view = new SwingLevelManagerView();
-        } else {
+        }else{
             view = new LanternaLevelManagerView();
         }
-        LevelManagerController controller = new LevelManagerController(levelManager, view);
+        LevelManagerController controller;
+        try {
+            controller = new LevelManagerController(levelManager, view);
+        } catch(OutOfBoundsException e){
+            e.printStackTrace();
+            return;
+        }
 
         try {
             controller.run();
             controller.closeScreen();
-        } catch (IOException | InterruptedException e) {
+        } catch (IOException | InterruptedException | OutOfBoundsException | InvalidGameException e){
             e.printStackTrace();
         }
     }

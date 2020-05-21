@@ -11,25 +11,23 @@ import java.io.IOException;
 import java.net.URL;
 
 public class SwingPlayerView extends JComponent implements PlayerView {
-    Position position;
+    private Position position;
 
     @Override
-    protected void paintComponent(Graphics graphics) {
+    protected void paintComponent(Graphics graphics){
         super.paintComponent(graphics);
 
 
         URL resource = GameJFrame.getJframe().getClass().getResource("/Player.png");
         BufferedImage image = null;
-        try {
+        try{
             image = ImageIO.read(resource);
-        } catch (IOException e) {
-        }
+        } catch (IOException ignored) {}
 
-        graphics.drawImage(image, position.getX() * 8, position.getY() * 16, null);
+        graphics.drawImage(image, position.getX()*8, position.getY()*16,null);
 
     }
-
-    public void draw(Position playerPosition) {
+    public void draw(Position playerPosition){
         this.position = playerPosition;
         GameJFrame.getJframe().getContentPane().add(this);
         paintComponents(GameJFrame.getJframe().getGraphics());

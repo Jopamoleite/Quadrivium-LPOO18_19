@@ -8,10 +8,7 @@ import java.util.List;
 
 public interface ControlsView {
     void draw(List<Sector> sectors);
-
     KeyPress processKey() throws IOException;
-
     void refreshScreen() throws IOException;
-
     void clearScreen();
 }

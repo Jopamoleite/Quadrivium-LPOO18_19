@@ -1,18 +1,23 @@
 package com.quadrivium.g13.model;
 
-public class BattleTanksEnemy extends Element {
-    private boolean alive;
+import com.quadrivium.g13.exceptions.OutOfBoundsException;
 
-    public BattleTanksEnemy(Position position) {
+public class BattleTanksEnemy extends Enemy {
+
+    private boolean isAlive;
+
+    public BattleTanksEnemy(Position position) throws OutOfBoundsException {
         this.setPosition(position);
-        this.alive = true;
+        isAlive = true;
     }
 
+    @Override
     public boolean isAlive() {
-        return alive;
+        return isAlive;
     }
 
+    @Override
     public void setAlive(boolean alive) {
-        this.alive = alive;
+        this.isAlive = alive;
     }
 }

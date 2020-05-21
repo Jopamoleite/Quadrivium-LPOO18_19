@@ -11,31 +11,31 @@ public class SwingMenuView extends SwingGameView implements MenuView {
     private List<List<Sector>> sectors;
 
     @Override
-    protected void paintComponent(Graphics graphics) {
+    protected void paintComponent(Graphics graphics){
         super.paintComponent(graphics);
 
         int color = 0;
-        for (List<Sector> sectorList : sectors) {
-            if (color == 0) {
+        for (List<Sector> sectorList : sectors){
+            if(color == 0){
                 graphics.setColor(Color.RED);
             }
-            if (color == 1) {
+            if(color == 1){
                 graphics.setColor(Color.ORANGE);
             }
-            if (color == 2) {
+            if(color == 2){
                 graphics.setColor(Color.BLUE);
             }
-            if (color == 3) {
+            if(color == 3){
                 graphics.setColor(Color.GREEN);
             }
             color++;
-            for (Sector sector : sectorList) {
-                graphics.drawRect(sector.getPosition().getX() * 8, sector.getPosition().getY() * 16, 8, 16);
+            for(Sector sector : sectorList) {
+                graphics.drawRect(sector.getPosition().getX()*8,sector.getPosition().getY()*16,8, 16);
             }
         }
     }
 
-    public void draw(List<List<Sector>> sectors) {
+    public void draw(List<List<Sector>> sectors){
         this.sectors = sectors;
         GameJFrame.getJframe().getContentPane().add(this);
         paintComponents(GameJFrame.getJframe().getGraphics());

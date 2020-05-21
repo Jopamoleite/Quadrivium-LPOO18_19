@@ -9,7 +9,7 @@ public class Controls {
     private int letterX;
     private int letterSize;
 
-    public Controls() {
+    public Controls(){
 
     }
 

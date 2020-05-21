@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+
+
+<h1>GameDimensions.java</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67231d8d_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67231d8d_1'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package com.quadrivium.g13.model;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67231d8d_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67231d8d_2'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67231d8d_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67231d8d_3'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>public final class GameDimensions {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67231d8d_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67231d8d_4'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private static int width, height;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67231d8d_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67231d8d_5'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private static boolean swing;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67231d8d_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67231d8d_6'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67231d8d_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67231d8d_7'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public static int getWidth() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67231d8d_8'/>
+8
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67231d8d_8'>1</a>
+<span>
+
+1. getWidth : replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return width;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67231d8d_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67231d8d_9'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67231d8d_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67231d8d_10'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67231d8d_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67231d8d_11'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public static void setWidth(int width) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67231d8d_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67231d8d_12'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        GameDimensions.width = width;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67231d8d_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67231d8d_13'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67231d8d_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67231d8d_14'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67231d8d_15'/>
+15
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67231d8d_15'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public static int getHeight() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67231d8d_16'/>
+16
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67231d8d_16'>1</a>
+<span>
+
+1. getHeight : replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return height;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67231d8d_17'/>
+17
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67231d8d_17'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67231d8d_18'/>
+18
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67231d8d_18'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67231d8d_19'/>
+19
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67231d8d_19'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public static void setHeight(int height) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67231d8d_20'/>
+20
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67231d8d_20'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        GameDimensions.height = height;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67231d8d_21'/>
+21
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67231d8d_21'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67231d8d_22'/>
+22
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67231d8d_22'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67231d8d_23'/>
+23
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67231d8d_23'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public static boolean isSwing() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67231d8d_24'/>
+24
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67231d8d_24'>1</a>
+<span>
+
+1. isSwing : replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return swing;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67231d8d_25'/>
+25
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67231d8d_25'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67231d8d_26'/>
+26
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67231d8d_26'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67231d8d_27'/>
+27
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67231d8d_27'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public static void setSwing(boolean swing) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67231d8d_28'/>
+28
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67231d8d_28'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        GameDimensions.swing = swing;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67231d8d_29'/>
+29
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67231d8d_29'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@67231d8d_30'/>
+30
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@67231d8d_30'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@67231d8d_8'>8</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@67231d8d_8'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getWidth<br/><b>Killed by : </b>com.quadrivium.g13.model.TestCreateGame.getWidth(com.quadrivium.g13.model.TestCreateGame)</span></span> replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@67231d8d_16'>16</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@67231d8d_16'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getHeight<br/><b>Killed by : </b>com.quadrivium.g13.model.TestCreateGame.getHeight(com.quadrivium.g13.model.TestCreateGame)</span></span> replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@67231d8d_24'>24</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@67231d8d_24'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isSwing<br/><b>Killed by : </b>com.quadrivium.g13.model.TestLevelManager.getPlayer(com.quadrivium.g13.model.TestLevelManager)</span></span> replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; KILLED</p> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+
+<li class='mutator'>INCREMENTS_MUTATOR</li>
+
+<li class='mutator'>VOID_METHOD_CALL_MUTATOR</li>
+
+<li class='mutator'>RETURN_VALS_MUTATOR</li>
+
+<li class='mutator'>MATH_MUTATOR</li>
+
+<li class='mutator'>NEGATE_CONDITIONALS_MUTATOR</li>
+
+<li class='mutator'>INVERT_NEGS_MUTATOR</li>
+
+<li class='mutator'>CONDITIONALS_BOUNDARY_MUTATOR</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>com.quadrivium.g13.model.TestElement.testMoveRight(com.quadrivium.g13.model.TestElement) (0 ms)</li><li>com.quadrivium.g13.controller.TestPlayerOutOfBounds.negativeX(com.quadrivium.g13.controller.TestPlayerOutOfBounds) (1 ms)</li><li>com.quadrivium.g13.model.TestSector.getColor(com.quadrivium.g13.model.TestSector) (1 ms)</li><li>com.quadrivium.g13.controller.TestPlayerOutOfBounds.yTooBig(com.quadrivium.g13.controller.TestPlayerOutOfBounds) (0 ms)</li><li>com.quadrivium.g13.model.TestWall.getString(com.quadrivium.g13.model.TestWall) (0 ms)</li><li>com.quadrivium.g13.model.TestElement.testMoveDown(com.quadrivium.g13.model.TestElement) (0 ms)</li><li>com.quadrivium.g13.model.TestLevelManager.getLevel(com.quadrivium.g13.model.TestLevelManager) (1 ms)</li><li>com.quadrivium.g13.model.TestCreateGame.getWidth(com.quadrivium.g13.model.TestCreateGame) (0 ms)</li><li>com.quadrivium.g13.model.TestSector.getString(com.quadrivium.g13.model.TestSector) (0 ms)</li><li>com.quadrivium.g13.controller.TestInputMCPCone.moveRight(com.quadrivium.g13.controller.TestInputMCPCone) (1 ms)</li><li>com.quadrivium.g13.model.TestPlayer.getLives(com.quadrivium.g13.model.TestPlayer) (1 ms)</li><li>com.quadrivium.g13.model.TestPlayer.startingXTooHigh(com.quadrivium.g13.model.TestPlayer) (1 ms)</li><li>com.quadrivium.g13.controller.TestLevelChanges.menuToBT(com.quadrivium.g13.controller.TestLevelChanges) (1 ms)</li><li>com.quadrivium.g13.model.TestPlayer.getStartingPos(com.quadrivium.g13.model.TestPlayer) (0 ms)</li><li>com.quadrivium.g13.model.TestWall.getColor(com.quadrivium.g13.model.TestWall) (1 ms)</li><li>com.quadrivium.g13.model.TestLevelManager.getPlayer(com.quadrivium.g13.model.TestLevelManager) (1 ms)</li><li>com.quadrivium.g13.controller.TestInputMenu.moveRight(com.quadrivium.g13.controller.TestInputMenu) (2 ms)</li><li>com.quadrivium.g13.controller.TestInputLightCycles.moveLeft(com.quadrivium.g13.controller.TestInputLightCycles) (2 ms)</li><li>com.quadrivium.g13.controller.TestLevelChanges.loseToMenu(com.quadrivium.g13.controller.TestLevelChanges) (3 ms)</li><li>com.quadrivium.g13.controller.TestLevelChanges.menuToMCPC(com.quadrivium.g13.controller.TestLevelChanges) (1 ms)</li><li>com.quadrivium.g13.controller.TestInputIOTower.moveDown(com.quadrivium.g13.controller.TestInputIOTower) (1 ms)</li><li>com.quadrivium.g13.controller.TestPlayerOutOfBounds.negativeY(com.quadrivium.g13.controller.TestPlayerOutOfBounds) (1 ms)</li><li>com.quadrivium.g13.controller.TestInputLightCycles.moveRight(com.quadrivium.g13.controller.TestInputLightCycles) (2 ms)</li><li>com.quadrivium.g13.controller.TestInputMCPCone.moveLeft(com.quadrivium.g13.controller.TestInputMCPCone) (0 ms)</li><li>com.quadrivium.g13.controller.TestLevelChanges.winToMenu(com.quadrivium.g13.controller.TestLevelChanges) (1 ms)</li><li>com.quadrivium.g13.controller.TestLevelChanges.menuToIOT(com.quadrivium.g13.controller.TestLevelChanges) (2 ms)</li><li>com.quadrivium.g13.model.TestCreateGame.getHeight(com.quadrivium.g13.model.TestCreateGame) (0 ms)</li><li>com.quadrivium.g13.model.TestElement.testMoveLeft(com.quadrivium.g13.model.TestElement) (1 ms)</li><li>com.quadrivium.g13.model.TestPlayer.startingYTooHigh(com.quadrivium.g13.model.TestPlayer) (1 ms)</li><li>com.quadrivium.g13.controller.TestInputIOTower.moveRight(com.quadrivium.g13.controller.TestInputIOTower) (0 ms)</li><li>com.quadrivium.g13.controller.TestLevelChanges.menuToLC(com.quadrivium.g13.controller.TestLevelChanges) (2 ms)</li><li>com.quadrivium.g13.controller.TestInputBattleTanks.moveLeft(com.quadrivium.g13.controller.TestInputBattleTanks) (1 ms)</li><li>com.quadrivium.g13.controller.TestLevelChanges.controlsToMenu(com.quadrivium.g13.controller.TestLevelChanges) (4 ms)</li><li>com.quadrivium.g13.model.TestEnemyFactory.createLCEnemy(com.quadrivium.g13.model.TestEnemyFactory) (8 ms)</li><li>com.quadrivium.g13.controller.TestInputMCPCone.moveUp(com.quadrivium.g13.controller.TestInputMCPCone) (1 ms)</li><li>com.quadrivium.g13.controller.TestInputBattleTanks.moveRight(com.quadrivium.g13.controller.TestInputBattleTanks) (1 ms)</li><li>com.quadrivium.g13.controller.TestInputIOTower.moveLeft(com.quadrivium.g13.controller.TestInputIOTower) (1 ms)</li><li>com.quadrivium.g13.controller.TestPlayerOutOfBounds.xTooBig(com.quadrivium.g13.controller.TestPlayerOutOfBounds) (1 ms)</li><li>com.quadrivium.g13.controller.TestInputBattleTanks.moveDown(com.quadrivium.g13.controller.TestInputBattleTanks) (1 ms)</li><li>com.quadrivium.g13.model.TestPlayer.startingXTooLow(com.quadrivium.g13.model.TestPlayer) (0 ms)</li><li>com.quadrivium.g13.controller.TestInputIOTower.moveUp(com.quadrivium.g13.controller.TestInputIOTower) (1 ms)</li><li>com.quadrivium.g13.controller.TestInputBattleTanks.moveUp(com.quadrivium.g13.controller.TestInputBattleTanks) (1 ms)</li><li>com.quadrivium.g13.controller.TestLevelChanges.iotToMenu(com.quadrivium.g13.controller.TestLevelChanges) (4 ms)</li><li>com.quadrivium.g13.controller.TestInputMenu.moveDown(com.quadrivium.g13.controller.TestInputMenu) (4 ms)</li><li>com.quadrivium.g13.model.TestEnemyFactory.createBTEnemy(com.quadrivium.g13.model.TestEnemyFactory) (0 ms)</li><li>com.quadrivium.g13.controller.TestInputMCPCone.moveDown(com.quadrivium.g13.controller.TestInputMCPCone) (1 ms)</li><li>com.quadrivium.g13.model.TestBullet.testBulletDirection(com.quadrivium.g13.model.TestBullet) (1 ms)</li><li>com.quadrivium.g13.controller.TestInputLightCycles.moveDown(com.quadrivium.g13.controller.TestInputLightCycles) (2 ms)</li><li>com.quadrivium.g13.model.TestPlayer.startingYTooLow(com.quadrivium.g13.model.TestPlayer) (0 ms)</li><li>com.quadrivium.g13.controller.TestLevelChanges.mcpcToMenu(com.quadrivium.g13.controller.TestLevelChanges) (3 ms)</li><li>com.quadrivium.g13.controller.TestInputMenu.moveLeft(com.quadrivium.g13.controller.TestInputMenu) (2 ms)</li><li>com.quadrivium.g13.controller.TestInputMenu.moveUp(com.quadrivium.g13.controller.TestInputMenu) (3 ms)</li><li>com.quadrivium.g13.controller.BattleTanksControllerTest.enemyCollide(com.quadrivium.g13.controller.BattleTanksControllerTest) (489 ms)</li><li>com.quadrivium.g13.controller.LightCyclesTest.enemyCollide(com.quadrivium.g13.controller.LightCyclesTest) (156 ms)</li><li>com.quadrivium.g13.model.TestElement.testMoveUp(com.quadrivium.g13.model.TestElement) (0 ms)</li><li>com.quadrivium.g13.controller.TestInputLightCycles.moveUp(com.quadrivium.g13.controller.TestInputLightCycles) (1 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='http://pitest.org'>PIT</a> 1.4.3
+
+</body>
+</html>

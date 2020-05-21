@@ -1,30 +1,41 @@
 package com.quadrivium.g13.controller;
 
+import com.quadrivium.g13.exceptions.InvalidGameException;
+import com.quadrivium.g13.exceptions.OutOfBoundsException;
 import com.quadrivium.g13.model.*;
-import com.quadrivium.g13.view.BattleTanksView;
+import com.quadrivium.g13.view.*;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class BattleTanksController implements GameController {
+public class BattleTanksController extends ScoreSubject implements GameController{
     private BattleTanks model;
     private BattleTanksView view;
+    private List<ScoreObserver> scoreObservers;
+    private int score;
 
-    public BattleTanksController(BattleTanks model, BattleTanksView view) {
+    public BattleTanksController(BattleTanks model, BattleTanksView view) throws OutOfBoundsException, InvalidGameException {
         this.model = model;
         this.view = view;
-        List<BattleTanksEnemy> new_enemies = new ArrayList<>();
-        new_enemies.add(new BattleTanksEnemy(new Position(29, 4)));
-        new_enemies.add(new BattleTanksEnemy(new Position(GameDimensions.getWidth() - 29, 4)));
-        new_enemies.add(new BattleTanksEnemy(new Position(29, GameDimensions.getHeight() - 5)));
-        new_enemies.add(new BattleTanksEnemy(new Position(GameDimensions.getWidth() - 29, GameDimensions.getHeight() - 5)));
-        //new_enemies.add(new BattleTanksEnemy(new Position()))
+        List<Enemy> new_enemies = new ArrayList<>();
+        this.scoreObservers = new ArrayList<>();
+        this.scoreObservers.add(new ScoreObserver(this));
+        this.score = 0;
+        new_enemies.add(GetEnemyFactory.generateEnemy(new Position(29, 4),"BT"));
+        new_enemies.add(GetEnemyFactory.generateEnemy(new Position(GameDimensions.getWidth()-29, 4), "BT"));
+        new_enemies.add(GetEnemyFactory.generateEnemy(new Position(29, GameDimensions.getHeight()-5), "BT"));
+        new_enemies.add(GetEnemyFactory.generateEnemy(new Position(GameDimensions.getWidth()-29, GameDimensions.getHeight()-5), "BT"));
         model.setActiveEnemies(new_enemies);
     }
 
-    public PlayerController getPlayer() {
+    public void setEnemyAtPlayerPosition() throws OutOfBoundsException, InvalidGameException {
+        this.model.setTestEnemy(GetEnemyFactory.generateEnemy(new Position(this.model.getPlayer().getPosition().getX(), this.model.getPlayer().getPosition().getY()), "BT"));
+        this.model.setTestEnemyActive(true);
+    }
+
+    public PlayerController getPlayer(){
         return model.getPlayer();
     }
 
@@ -35,33 +46,28 @@ public class BattleTanksController implements GameController {
 
     @Override
     public synchronized void draw() {
-        if (GameDimensions.isSwing())
+        if(GameDimensions.isSwing())
             model.getPlayer().draw();
-        view.draw(model.getMapWalls(), model.getActivePlayerBullets(), model.getActiveEnemies(), model.getActiveEnemyBullets(), model.isAllEnemiesKilled(), model.getPlayerLives());
-        if (!GameDimensions.isSwing())
+        view.draw(model.getMapWalls(), model.getActivePlayerBullets(), model.getActiveEnemies(), model.getActiveEnemyBullets(), model.isAllEnemiesKilled(), model.getPlayerLives(), score);
+        if(!GameDimensions.isSwing())
             model.getPlayer().draw();
     }
 
-    @Override
-    public void update() {
-
-    }
-
-    public boolean canElementMove(Position position) {
-        for (Wall wall : model.getMapWalls()) {
-            if (position.equals(wall.getPosition()))
+    private boolean canElementMove(Position position){
+        for (Wall wall : model.getMapWalls()){
+            if(position.equals(wall.getPosition()))
                 return false;
         }
-        return !((position.getX() >= (GameDimensions.getWidth() - 1)) || (position.getX() <= 0) || (position.getY() >= (GameDimensions.getHeight() - 1)) || (position.getY() <= 0));
+        return !((position.getX() >= (GameDimensions.getWidth()-1)) || (position.getX()<=0) || (position.getY() >= (GameDimensions.getHeight()-1)) || (position.getY()<=0));
     }
 
-    public void movePlayer(Position position) {
-        if (canElementMove(position)) {
+    private void movePlayer(Position position) throws OutOfBoundsException {
+        if(canElementMove(position)) {
             model.getPlayer().setPosition(position);
         }
     }
 
-    public void handleKey(KeyPress key) {
+    void handleKey(KeyPress key) throws OutOfBoundsException {
         switch (key) {
             case UP:
                 movePlayer(model.getPlayer().moveUp());
@@ -76,16 +82,16 @@ public class BattleTanksController implements GameController {
                 movePlayer(model.getPlayer().moveLeft());
                 break;
             case W:
-                shoot('U', model.getPlayer().getPosition());
+                shoot('U');
                 break;
             case A:
-                shoot('L', model.getPlayer().getPosition());
+                shoot('L');
                 break;
             case S:
-                shoot('D', model.getPlayer().getPosition());
+                shoot('D');
                 break;
             case D:
-                shoot('R', model.getPlayer().getPosition());
+                shoot('R');
                 break;
             default:
                 break;
@@ -93,22 +99,22 @@ public class BattleTanksController implements GameController {
     }
 
     @Override
-    public boolean checkEnter(KeyPress key, CurrentLevel level) {
+    public boolean checkEnter(KeyPress key, CurrentLevel level){
         return (key == KeyPress.ENTER);
     }
 
-    public void generateMap() {
+    private void generateMap() throws OutOfBoundsException {
         List<Wall> newWalls = new ArrayList<>();
-        for (int i = 28; i < GameDimensions.getWidth() - 27; i++) {
-            newWalls.add(new Wall(new Position(i, 3)));
-            newWalls.add(new Wall(new Position(i, GameDimensions.getHeight() - 4)));
+        for(int i = 28; i < GameDimensions.getWidth()-27; i++){
+            newWalls.add(new Wall(new Position(i,3)));
+            newWalls.add(new Wall(new Position(i,GameDimensions.getHeight()-4)));
         }
-        for (int i = 3; i < GameDimensions.getHeight() - 4; i++) {
-            newWalls.add(new Wall(new Position(28, i)));
-            newWalls.add(new Wall(new Position(GameDimensions.getWidth() - 28, i)));
+        for(int i = 3; i < GameDimensions.getHeight()-4; i++){
+            newWalls.add(new Wall(new Position(28,i)));
+            newWalls.add(new Wall(new Position(GameDimensions.getWidth()-28, i)));
         }
 
-        for (int j = 7; j < 9; j++) {
+        for(int j = 7; j < 9; j++) {
             newWalls.add(new Wall(new Position(36, j)));
             newWalls.add(new Wall(new Position(37, j)));
             newWalls.add(new Wall(new Position(38, j)));
@@ -124,37 +130,37 @@ public class BattleTanksController implements GameController {
             }
         }
 
-        for (int j = 9; j <= 11; j++) {
+        for(int  j = 9; j <= 11; j++) {
             newWalls.add(new Wall(new Position(36, j)));
             newWalls.add(new Wall(new Position(37, j)));
             newWalls.add(new Wall(new Position(38, j)));
-            for (int i = 54; i <= 56; i++)
-                newWalls.add(new Wall(new Position(i, j)));
+            for(int i = 54; i <= 56; i++)
+                newWalls.add(new Wall (new Position(i, j)));
         }
 
-        for (int i = 45; i <= 47; i++) {
-            newWalls.add(new Wall(new Position(i, 12)));
-            newWalls.add(new Wall(new Position(i, 13)));
-            newWalls.add(new Wall(new Position(i, 14)));
+        for(int i = 45; i <= 47; i++) {
+            newWalls.add(new Wall(new Position(i,12)));
+            newWalls.add(new Wall(new Position(i,13)));
+            newWalls.add(new Wall(new Position(i,14)));
 
-            newWalls.add(new Wall(new Position(i, 18)));
-            newWalls.add(new Wall(new Position(i, 19)));
-            newWalls.add(new Wall(new Position(i, 20)));
+            newWalls.add(new Wall(new Position(i,18)));
+            newWalls.add(new Wall(new Position(i,19)));
+            newWalls.add(new Wall(new Position(i,20)));
         }
 
-        for (int i = 16; i <= 21; i++) {
+        for(int i = 16; i <= 21; i++){
             newWalls.add(new Wall(new Position(36, i)));
             newWalls.add(new Wall(new Position(37, i)));
             newWalls.add(new Wall(new Position(38, i)));
         }
 
-        for (int i = 27; i <= 33; i++) {
+        for(int i = 27; i <= 33; i++){
             newWalls.add(new Wall(new Position(36, i)));
             newWalls.add(new Wall(new Position(37, i)));
             newWalls.add(new Wall(new Position(38, i)));
         }
 
-        for (int j = 32; j < 34; j++) {
+        for(int j = 32; j < 34; j++) {
             newWalls.add(new Wall(new Position(87, j)));
             newWalls.add(new Wall(new Position(88, j)));
             newWalls.add(new Wall(new Position(89, j)));
@@ -170,17 +176,17 @@ public class BattleTanksController implements GameController {
             }
         }
 
-        for (int j = 29; j <= 31; j++) {
+        for(int  j = 29; j <= 31; j++) {
             newWalls.add(new Wall(new Position(87, j)));
             newWalls.add(new Wall(new Position(88, j)));
             newWalls.add(new Wall(new Position(89, j)));
-            for (int i = 62; i <= 64; i++)
-                newWalls.add(new Wall(new Position(i, j)));
+            for(int i = 62; i <= 64; i++)
+                newWalls.add(new Wall (new Position(i, j)));
         }
 
-        for (int i = 77; i <= 79; i++) {
+        for(int i = 77; i <= 79; i++) {
             newWalls.add(new Wall(new Position(i, 28)));
-            newWalls.add(new Wall(new Position(i, 27)));
+            newWalls.add(new Wall(new Position(i,27)));
             newWalls.add(new Wall(new Position(i, 26)));
 
             newWalls.add(new Wall(new Position(i, 22)));
@@ -188,27 +194,27 @@ public class BattleTanksController implements GameController {
             newWalls.add(new Wall(new Position(i, 20)));
         }
 
-        for (int i = 15; i <= 20; i++) {
+        for(int i = 15; i <= 20; i++) {
             newWalls.add(new Wall(new Position(87, i)));
             newWalls.add(new Wall(new Position(88, i)));
             newWalls.add(new Wall(new Position(89, i)));
 
         }
 
-        for (int i = 55; i < 59; i++) {
-            newWalls.add(new Wall(new Position(i, 17)));
-            newWalls.add(new Wall(new Position(i, GameDimensions.getHeight() - 18)));
+        for(int i = 55; i < 59; i++){
+            newWalls.add(new Wall(new Position(i,17)));
+            newWalls.add(new Wall(new Position(i,GameDimensions.getHeight()-18)));
         }
-        for (int i = 66; i < 70; i++) {
-            newWalls.add(new Wall(new Position(i, 17)));
-            newWalls.add(new Wall(new Position(i, GameDimensions.getHeight() - 18)));
+        for(int i = 66; i < 70; i++){
+            newWalls.add(new Wall(new Position(i,17)));
+            newWalls.add(new Wall(new Position(i,GameDimensions.getHeight()-18)));
         }
-        for (int i = 17; i < GameDimensions.getHeight() - 18; i++) {
-            newWalls.add(new Wall(new Position(55, i)));
-            newWalls.add(new Wall(new Position(GameDimensions.getWidth() - 56, i)));
+        for(int i = 17; i < GameDimensions.getHeight()-18; i++){
+            newWalls.add(new Wall(new Position(55,i)));
+            newWalls.add(new Wall(new Position(GameDimensions.getWidth()-56, i)));
         }
 
-        for (Wall wall : newWalls) {
+        for(Wall wall : newWalls){
             wall.setColor("#00FF00");
             wall.setWallStr("\u25AE");
         }
@@ -216,50 +222,48 @@ public class BattleTanksController implements GameController {
         model.setMapWalls(newWalls);
     }
 
-    public synchronized void shoot(char direction, Position initialPos) {
-        int b_x = initialPos.getX();
-        int b_y = initialPos.getY();
-        if (model.getActivePlayerBullets().size() < 10) {
-            Bullet newBullet = new Bullet(direction, new Position(b_x, b_y));
+    private synchronized void shoot(char direction){
+        if(model.getActivePlayerBullets().size()<10) {
+            Bullet newBullet = Bullet.bulletFromPlayer(model.getPlayer(), direction);
             List<Bullet> newBulletsList = model.getActivePlayerBullets();
             newBulletsList.add(newBullet);
             model.setActivePlayerBullets(newBulletsList);
         }
     }
 
-    public synchronized void updateBullets() {
-        for (Bullet bullet : model.getActivePlayerBullets()) {
-            switch (bullet.getDirection()) {
+    private synchronized void updateBullets() throws OutOfBoundsException {
+        for(Bullet bullet : model.getActivePlayerBullets()){
+            switch(bullet.getDirection()){
                 case 'U':
-                    bullet.getPosition().setY(bullet.getPosition().getY() - 1);
+                    bullet.getPosition().setY(bullet.getPosition().getY()-1);
                     break;
                 case 'L':
-                    bullet.getPosition().setX(bullet.getPosition().getX() - 1);
+                    bullet.getPosition().setX(bullet.getPosition().getX()-1);
                     break;
                 case 'D':
-                    bullet.getPosition().setY(bullet.getPosition().getY() + 1);
+                    bullet.getPosition().setY(bullet.getPosition().getY()+1);
                     break;
                 case 'R':
-                    bullet.getPosition().setX(bullet.getPosition().getX() + 1);
+                    bullet.getPosition().setX(bullet.getPosition().getX()+1);
                     break;
                 default:
                     break;
             }
         }
         checkPlayerBulletCollisions();
-        for (Bullet bullet : model.getActiveEnemyBullets()) {
-            switch (bullet.getDirection()) {
+        for(Bullet bullet : model.getActiveEnemyBullets()){
+            switch(bullet.getDirection()){
                 case 'U':
-                    bullet.getPosition().setY(bullet.getPosition().getY() - 1);
+                    bullet.getPosition().setY(bullet.getPosition().getY()-1);
                     break;
                 case 'L':
-                    bullet.getPosition().setX(bullet.getPosition().getX() - 1);
+                    bullet.getPosition().setX(bullet.getPosition().getX()-1);
                     break;
                 case 'D':
-                    bullet.getPosition().setY(bullet.getPosition().getY() + 1);
+                    bullet.getPosition().setY(bullet.getPosition().getY()+1);
                     break;
                 case 'R':
-                    bullet.getPosition().setX(bullet.getPosition().getX() + 1);
+                    bullet.getPosition().setX(bullet.getPosition().getX()+1);
                     break;
                 default:
                     break;
@@ -268,24 +272,26 @@ public class BattleTanksController implements GameController {
         checkEnemyBulletCollisions();
     }
 
-    public synchronized void checkPlayerBulletCollisions() {
+    private synchronized void checkPlayerBulletCollisions(){
         List<Bullet> bullets = model.getActivePlayerBullets();
-        List<BattleTanksEnemy> enemies = model.getActiveEnemies();
-        for (int i = 0; i < bullets.size(); i++) {
+        List<Enemy> enemies = model.getActiveEnemies();
+        for(int i = 0; i < bullets.size(); i++){
             Bullet bullet = bullets.get(i);
-            for (int j = 0; j < enemies.size(); j++) {
-                BattleTanksEnemy enemy = enemies.get(j);
-                if (bullet.getPosition().equals(enemy.getPosition())) {
+            for(int j = 0; j < enemies.size(); j++){
+                Enemy enemy = enemies.get(j);
+                if(bullet.getPosition().equals(enemy.getPosition())){
                     if (model.getActivePlayerBullets().remove(bullet)) {
                         i--;
                     }
+                    enemy.setAlive(false);
                     model.getActiveEnemies().remove(enemy);
+                    setScore(getScore()+500);
                     j--;
                     break;
                 }
             }
-            for (Wall wall : model.getMapWalls()) {
-                if (bullet.getPosition().equals(wall.getPosition())) {
+            for(Wall wall : model.getMapWalls()){
+                if(bullet.getPosition().equals(wall.getPosition())) {
                     if (model.getActivePlayerBullets().remove(bullet)) {
                         i--;
                         break;
@@ -296,58 +302,69 @@ public class BattleTanksController implements GameController {
         }
     }
 
-    public synchronized void checkEnemyBulletCollisions() {
+    public void setPlayerLives(int lives){
+        model.setPlayerLives(lives);
+    }
+
+    private synchronized void checkEnemyBulletCollisions() throws OutOfBoundsException {
         List<Bullet> bullets = model.getActiveEnemyBullets();
-        for (int i = 0; i < bullets.size(); i++) {
+        for(int i = 0; i < bullets.size(); i++){
             Bullet bullet = bullets.get(i);
-            for (Wall wall : model.getMapWalls()) {
-                if (bullet.getPosition().equals(wall.getPosition())) {
-                    if (model.getActiveEnemyBullets().remove(bullet)) {
+            for(Wall wall : model.getMapWalls()){
+                if(bullet.getPosition().equals(wall.getPosition())){
+                    if(model.getActiveEnemyBullets().remove(bullet)){
                         i--;
                     }
-                } else if (bullet.getPosition().equals(model.getPlayer().getPosition())) {
-                    if (model.getActiveEnemyBullets().remove(bullet)) {
+                }
+                else if(bullet.getPosition().equals(model.getPlayer().getPosition())){
+                    if(model.getActiveEnemyBullets().remove(bullet)){
                         i--;
                     }
-                    model.setPlayerLives(model.getPlayerLives() - 1);
+                    model.setPlayerLives(model.getPlayerLives()-1);
                     model.getPlayer().resetPosition();
                 }
             }
         }
     }
 
-    public synchronized void checkPlayerEnemyCollisons() {
-        for (BattleTanksEnemy enemy : model.getActiveEnemies()) {
-            if (enemy.getPosition().equals(model.getPlayer().getPosition())) {
-                model.setPlayerLives(model.getPlayerLives() - 1);
+    private synchronized void checkPlayerEnemyCollisions() throws OutOfBoundsException {
+        for(Enemy enemy : model.getActiveEnemies()){
+            if(enemy.getPosition().equals(model.getPlayer().getPosition())){
+                model.setPlayerLives(model.getPlayerLives()-1);
                 model.getPlayer().resetPosition();
                 return;
             }
         }
+        if(model.isTestEnemyActive()){
+            if(model.getTestEnemy().getPosition().equals(model.getPlayer().getPosition())){
+                model.setPlayerLives(model.getPlayerLives()-1);
+                model.getPlayer().resetPosition();
+            }
+        }
     }
 
-    public synchronized void moveEnemies() {
+    private synchronized void moveEnemies() throws OutOfBoundsException {
         Random rand = new Random();
-        List<BattleTanksEnemy> enemies = model.getActiveEnemies();
+        List<Enemy> enemies = model.getActiveEnemies();
         int direction; //(0 - up; 1 - left; 2 - down; 3 - right)
-        for (BattleTanksEnemy enemy : enemies) {
+        for(Enemy enemy : enemies){
             direction = rand.nextInt(4);
-            switch (direction) {
+            switch(direction){
                 case 0:
-                    if (canElementMove(enemy.moveUp())) {
+                    if(canElementMove(enemy.moveUp())) {
                         enemy.setPosition(enemy.moveUp());
                     }
                     break;
                 case 1:
-                    if (canElementMove(enemy.moveLeft()))
+                    if(canElementMove(enemy.moveLeft()))
                         enemy.setPosition(enemy.moveLeft());
                     break;
                 case 2:
-                    if (canElementMove(enemy.moveDown()))
+                    if(canElementMove(enemy.moveDown()))
                         enemy.setPosition(enemy.moveDown());
                     break;
                 case 3:
-                    if (canElementMove(enemy.moveRight()))
+                    if(canElementMove(enemy.moveRight()))
                         enemy.setPosition(enemy.moveRight());
                     break;
                 default:
@@ -357,45 +374,27 @@ public class BattleTanksController implements GameController {
     }
 
 
-    public synchronized void generateEnemyBullets() {
+
+    private synchronized void generateEnemyBullets(){
         Random rand = new Random();
-        List<BattleTanksEnemy> enemies = model.getActiveEnemies();
+        List<Enemy> enemies = model.getActiveEnemies();
         int enemy_index;
-        if (enemies.size() == 0)
+        if(enemies.size() == 0)
             return;
         enemy_index = rand.nextInt(enemies.size());
-        int dir;
-        char bullet_direction = 'U';
-        dir = rand.nextInt(4); //(0 - up; 1 - left; 2 - down; 3 - right)
-        switch (dir) {
-            case 0:
-                bullet_direction = 'U';
-                break;
-            case 1:
-                bullet_direction = 'L';
-                break;
-            case 2:
-                bullet_direction = 'D';
-                break;
-            case 3:
-                bullet_direction = 'R';
-                break;
-            default:
-                break;
-        }
-        model.getActiveEnemyBullets().add(new Bullet(bullet_direction, new Position(enemies.get(enemy_index).getPosition())));
+        model.getActiveEnemyBullets().add(Bullet.bulletFromEnemy(model.getActiveEnemies().get(enemy_index)));
     }
 
-    public synchronized void updateEnemies() {
+    private synchronized void updateEnemies() throws OutOfBoundsException {
         moveEnemies();
         generateEnemyBullets();
     }
 
-    public boolean hasPlayerWon() {
-        if (model.isAllEnemiesKilled()) {
-            for (int i = 56; i < 69; i++) {
-                for (int j = 18; j < 23; j++) {
-                    if (model.getPlayer().getPosition().equals(new Position(i, j)))
+    private boolean hasPlayerWon(){
+        if(model.isAllEnemiesKilled()){
+            for(int i = 56; i < 69; i++){
+                for(int j = 18; j < 23; j++){
+                    if(model.getPlayer().getPosition().equals(new Position(i,j)))
                         return true;
                 }
             }
@@ -405,86 +404,150 @@ public class BattleTanksController implements GameController {
 
 
     @Override
-    public GameResult play(CurrentLevel level) throws IOException, InterruptedException {
+    public GameResult play(CurrentLevel level) throws IOException, InterruptedException, OutOfBoundsException {
 
         generateMap();
         Thread bullets_thread = new Thread() {
-            public void run() {
-                while (true) {
-                    updateBullets();
+            public void run(){
+                do {
+                    try {
+                        updateBullets();
+                    } catch (OutOfBoundsException e) {
+                        e.printStackTrace();
+                    }
                     try {
                         Thread.sleep(100);
                     } catch (InterruptedException e) {
                         break;
                     }
-                    if (isInterrupted()) return;
-                }
+                } while (!isInterrupted());
             }
         };
         Thread enemies_thread = new Thread() {
-            public void run() {
-                while (true) {
-                    updateEnemies();
+            public void run(){
+                do {
+                    try {
+                        updateEnemies();
+                    } catch (OutOfBoundsException e) {
+                        e.printStackTrace();
+                    }
                     try {
                         Thread.sleep(150);
                     } catch (InterruptedException e) {
                         break;
                     }
-                    if (isInterrupted()) return;
-                }
+                } while (!isInterrupted());
             }
         };
         enemies_thread.start();
         bullets_thread.start();
-        while (true) {
+
+        while(true){
             view.clearScreen();
             draw();
             view.refreshScreen();
 
             KeyPress key;
-            if (GameDimensions.isSwing()) {
+            if(GameDimensions.isSwing()){
                 key = level.getKey();
-            } else {
+            } else{
                 key = view.processKey();
             }
 
-            if (key != null)
+            if(key!=null)
                 handleKey(key);
 
-            checkPlayerEnemyCollisons();
+            checkPlayerEnemyCollisions();
 
-            if (model.getActiveEnemies().size() == 0) {
+            if(model.getPlayerLives() == 0){
+                bullets_thread.interrupt();
+                enemies_thread.interrupt();
+                for(ScoreObserver obs : scoreObservers){
+                    detach(obs);
+                }
+                if(GameDimensions.isSwing()){
+                    level.setActiveGame(new LoseScreenController(new LoseScreen(), new SwingLoseScreenView()));
+                }
+                else{
+                    level.setActiveGame(new LoseScreenController(new LoseScreen(), new LanternaLoseScreenView()));
+                }
+                return GameResult.LOSE;
+            }
+
+            if(model.getActiveEnemies().size() == 0){
                 model.setAllEnemiesKilled(true);
             }
 
-            if (checkEnter(key, level)) {
-                if (hasPlayerWon()) {
+            if(checkEnter(key, level)){
+                if(hasPlayerWon()) {
                     bullets_thread.interrupt();
                     enemies_thread.interrupt();
                     break;
                 }
             }
 
-            if (key == KeyPress.EXIT) {
+            if (key == KeyPress.EXIT  || key == KeyPress.EOF){
                 bullets_thread.interrupt();
                 enemies_thread.interrupt();
+                for(ScoreObserver obs : scoreObservers){
+                    detach(obs);
+                }
                 return GameResult.EXIT;
             }
-            Thread.sleep(1000 / 30);
 
-            if (model.getPlayerLives() == 0) {
-                bullets_thread.interrupt();
-                enemies_thread.interrupt();
-                return GameResult.LOSE;
-            }
-
+            Thread.sleep(1000/30);
         }
         try {
             bullets_thread.join();
             enemies_thread.join();
-        } catch (InterruptedException e) {
+        } catch (InterruptedException ignored) {
+        }
+        for(ScoreObserver obs : scoreObservers){
+            detach(obs);
         }
 
+        if(GameDimensions.isSwing()){
+            level.setActiveGame(new WinScreenController(new WinScreen(), new SwingWinScreenView()));
+        }
+        else{
+            level.setActiveGame(new WinScreenController(new WinScreen(), new LanternaWinScreenView()));
+        }
         return GameResult.WIN;
+    }
+
+    @Override
+    public void attach(ScoreObserver observer) {
+        scoreObservers.add(observer);
+    }
+
+    @Override
+    public void detach(ScoreObserver observer) {
+        scoreObservers.remove(observer);
+    }
+
+    @Override
+    public void notifyObs() {
+        for(ScoreObserver observer : scoreObservers){
+            observer.update();
+        }
+    }
+
+    public List<ScoreObserver> getScoreObservers() {
+        return scoreObservers;
+    }
+
+    public void setScoreObservers(List<ScoreObserver> scoreObservers) {
+        this.scoreObservers = scoreObservers;
+    }
+
+    @Override
+    public int getScore() {
+        return score;
+    }
+
+    @Override
+    public void setScore(int score) {
+        notifyObs();
+        this.score = score;
     }
 }

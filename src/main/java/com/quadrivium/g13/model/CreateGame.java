@@ -12,19 +12,19 @@ import java.io.IOException;
 
 public class CreateGame {
 
-    public void initGame() {
-        GameDimensions.setWidth(125);
-        GameDimensions.setHeight(41);
+    public void initGame(){
 
-        if (GameDimensions.isSwing()) {
+        setDimensions();
+
+        if(GameDimensions.isSwing()){
             JFrame frame;
             frame = new JFrame("Quadrivium");
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            frame.setSize(new Dimension(125 * 8 + 48, 41 * 16 + 64));
+            frame.setSize(new Dimension(125*8+48,41*16+64));
             frame.setVisible(true);
             frame.getContentPane().setBackground(Color.BLACK);
             GameJFrame.setJframe(frame);
-        } else {
+        }else{
             try {
                 Screen screen;
                 TerminalSize termSize = new TerminalSize(GameDimensions.getWidth(), GameDimensions.getHeight());
@@ -39,9 +39,14 @@ public class CreateGame {
                 screen.doResizeIfNecessary();     // resize screen if necessary
                 screen.doResizeIfNecessary();     // resize screen if necessary
             } catch (
-                    IOException e) {
+                    IOException e){
                 e.printStackTrace();
             }
         }
+    }
+
+    public void setDimensions(){
+        GameDimensions.setWidth(125);
+        GameDimensions.setHeight(41);
     }
 }

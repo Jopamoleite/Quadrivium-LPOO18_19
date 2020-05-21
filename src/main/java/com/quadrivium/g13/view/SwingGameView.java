@@ -11,11 +11,9 @@ public class SwingGameView extends JComponent {
     public KeyPress processKey() {
         return KeyPress.NO_KEY;
     }
-
-    public void refreshScreen() throws IOException {
+    public void refreshScreen() {
     }
-
-    public void clearScreen() {
+    public void clearScreen(){
         GameJFrame.getJframe().getContentPane().removeAll();
         GameJFrame.getJframe().getContentPane().revalidate();
         GameJFrame.getJframe().getContentPane().repaint();

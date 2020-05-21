@@ -4,5 +4,6 @@ public enum GameResult {
     WIN,
     LOSE,
     PROCEED,
+    START,
     EXIT
 }

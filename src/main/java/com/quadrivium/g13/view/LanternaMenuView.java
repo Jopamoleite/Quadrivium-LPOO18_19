@@ -11,10 +11,10 @@ import java.util.List;
 
 public class LanternaMenuView extends LanternaGameView implements MenuView {
 
-    public void draw(List<List<Sector>> sectors) {
+    public void draw(List<List<Sector>> sectors){
         TextGraphics graphics = GameScreen.getScreen().newTextGraphics();
         for (List<Sector> sectorList : sectors)
-            for (Sector sector : sectorList) {
+            for(Sector sector : sectorList) {
                 graphics.setForegroundColor(TextColor.Factory.fromString("#000000"));
                 graphics.setBackgroundColor(TextColor.Factory.fromString(sector.getColor()));
                 graphics.enableModifiers(SGR.BOLD);

@@ -10,9 +10,12 @@ public class BattleTanks {
     private int playerLives;
     private List<Wall> mapWalls;
     private List<Bullet> activePlayerBullets;
-    private List<BattleTanksEnemy> activeEnemies;
+    private List<Enemy> activeEnemies;
+    private Enemy testEnemy;
+    private boolean testEnemyActive;
     private List<Bullet> activeEnemyBullets;
     private boolean allEnemiesKilled;
+    private int score;
 
     public BattleTanks() {
         mapWalls = new ArrayList<>();
@@ -21,6 +24,8 @@ public class BattleTanks {
         this.activeEnemyBullets = new ArrayList<>();
         playerLives = 3;
         allEnemiesKilled = false;
+        score = 0;
+        testEnemyActive = false;
     }
 
     public PlayerController getPlayer() {
@@ -47,11 +52,11 @@ public class BattleTanks {
         this.activePlayerBullets = activeBullets;
     }
 
-    public List<BattleTanksEnemy> getActiveEnemies() {
+    public List<Enemy> getActiveEnemies() {
         return activeEnemies;
     }
 
-    public void setActiveEnemies(List<BattleTanksEnemy> activeEnemies) {
+    public void setActiveEnemies(List<Enemy> activeEnemies) {
         this.activeEnemies = activeEnemies;
     }
 
@@ -77,5 +82,29 @@ public class BattleTanks {
 
     public void setAllEnemiesKilled(boolean allEnemiesKilled) {
         this.allEnemiesKilled = allEnemiesKilled;
+    }
+
+    public int getScore() {
+        return score;
+    }
+
+    public void setScore(int score) {
+        this.score = score;
+    }
+
+    public Enemy getTestEnemy() {
+        return testEnemy;
+    }
+
+    public void setTestEnemy(Enemy testEnemy) {
+        this.testEnemy = testEnemy;
+    }
+
+    public boolean isTestEnemyActive() {
+        return testEnemyActive;
+    }
+
+    public void setTestEnemyActive(boolean testEnemyActive) {
+        this.testEnemyActive = testEnemyActive;
     }
 }

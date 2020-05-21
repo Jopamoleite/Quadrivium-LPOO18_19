@@ -11,5 +11,6 @@ public enum KeyPress {
     S,
     D,
     EXIT,
+    EOF,
     NO_KEY
 }

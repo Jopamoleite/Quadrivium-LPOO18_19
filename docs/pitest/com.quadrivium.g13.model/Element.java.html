@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+
+
+<h1>Element.java</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5b1e5366_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5b1e5366_1'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package com.quadrivium.g13.model;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5b1e5366_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5b1e5366_2'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5b1e5366_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5b1e5366_3'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import com.quadrivium.g13.exceptions.OutOfBoundsException;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5b1e5366_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5b1e5366_4'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5b1e5366_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5b1e5366_5'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>public abstract class Element {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5b1e5366_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5b1e5366_6'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private Position position;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5b1e5366_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5b1e5366_7'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5b1e5366_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5b1e5366_8'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public Position getPosition() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5b1e5366_9'/>
+9
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5b1e5366_9'>1</a>
+<span>
+
+1. getPosition : mutated return of Object value for com/quadrivium/g13/model/Element::getPosition to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return position;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5b1e5366_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5b1e5366_10'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5b1e5366_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5b1e5366_11'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5b1e5366_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5b1e5366_12'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public void setPosition(Position position) throws OutOfBoundsException {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5b1e5366_13'/>
+13
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5b1e5366_13'>8</a>
+<span>
+
+1. setPosition : changed conditional boundary &rarr; SURVIVED<br/>
+
+2. setPosition : changed conditional boundary &rarr; SURVIVED<br/>
+
+3. setPosition : changed conditional boundary &rarr; SURVIVED<br/>
+
+4. setPosition : changed conditional boundary &rarr; KILLED<br/>
+
+5. setPosition : negated conditional &rarr; KILLED<br/>
+
+6. setPosition : negated conditional &rarr; KILLED<br/>
+
+7. setPosition : negated conditional &rarr; KILLED<br/>
+
+8. setPosition : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        if(position.getX() &#60; 0 || position.getY() &#60; 0 || position.getX() &#62;= GameDimensions.getWidth() || position.getY() &#62;= GameDimensions.getHeight()){</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5b1e5366_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5b1e5366_14'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            throw new OutOfBoundsException();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5b1e5366_15'/>
+15
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5b1e5366_15'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5b1e5366_16'/>
+16
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5b1e5366_16'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.position = position;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5b1e5366_17'/>
+17
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5b1e5366_17'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5b1e5366_18'/>
+18
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5b1e5366_18'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5b1e5366_19'/>
+19
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5b1e5366_19'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public Position moveUp() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5b1e5366_20'/>
+20
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5b1e5366_20'>2</a>
+<span>
+
+1. moveUp : Replaced integer subtraction with addition &rarr; SURVIVED<br/>
+
+2. moveUp : mutated return of Object value for com/quadrivium/g13/model/Element::moveUp to ( if (x != null) null else throw new RuntimeException ) &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        return new Position(getPosition().getX(), getPosition().getY() - 1);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5b1e5366_21'/>
+21
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5b1e5366_21'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5b1e5366_22'/>
+22
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5b1e5366_22'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public Position moveDown() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5b1e5366_23'/>
+23
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5b1e5366_23'>2</a>
+<span>
+
+1. moveDown : Replaced integer addition with subtraction &rarr; SURVIVED<br/>
+
+2. moveDown : mutated return of Object value for com/quadrivium/g13/model/Element::moveDown to ( if (x != null) null else throw new RuntimeException ) &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        return new Position(getPosition().getX(), getPosition().getY() + 1);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5b1e5366_24'/>
+24
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5b1e5366_24'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5b1e5366_25'/>
+25
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5b1e5366_25'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public Position moveRight() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5b1e5366_26'/>
+26
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5b1e5366_26'>2</a>
+<span>
+
+1. moveRight : Replaced integer addition with subtraction &rarr; SURVIVED<br/>
+
+2. moveRight : mutated return of Object value for com/quadrivium/g13/model/Element::moveRight to ( if (x != null) null else throw new RuntimeException ) &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        return new Position(getPosition().getX() + 1, getPosition().getY());</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5b1e5366_27'/>
+27
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5b1e5366_27'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5b1e5366_28'/>
+28
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5b1e5366_28'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public Position moveLeft() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5b1e5366_29'/>
+29
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5b1e5366_29'>2</a>
+<span>
+
+1. moveLeft : Replaced integer subtraction with addition &rarr; SURVIVED<br/>
+
+2. moveLeft : mutated return of Object value for com/quadrivium/g13/model/Element::moveLeft to ( if (x != null) null else throw new RuntimeException ) &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        return new Position(getPosition().getX() - 1, getPosition().getY());</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5b1e5366_30'/>
+30
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5b1e5366_30'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5b1e5366_31'/>
+31
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5b1e5366_31'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5b1e5366_9'>9</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5b1e5366_9'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getPosition<br/><b>Killed by : </b>com.quadrivium.g13.model.TestElement.testMoveDown(com.quadrivium.g13.model.TestElement)</span></span> mutated return of Object value for com/quadrivium/g13/model/Element::getPosition to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5b1e5366_13'>13</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5b1e5366_13'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>setPosition<br/><b>Killed by : </b>none</span></span> changed conditional boundary &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>setPosition<br/><b>Killed by : </b>none</span></span> changed conditional boundary &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>setPosition<br/><b>Killed by : </b>none</span></span> changed conditional boundary &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>setPosition<br/><b>Killed by : </b>com.quadrivium.g13.controller.TestPlayerOutOfBounds.yTooBig(com.quadrivium.g13.controller.TestPlayerOutOfBounds)</span></span> changed conditional boundary &rarr; KILLED</p> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>setPosition<br/><b>Killed by : </b>com.quadrivium.g13.model.TestElement.testMoveDown(com.quadrivium.g13.model.TestElement)</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>setPosition<br/><b>Killed by : </b>com.quadrivium.g13.model.TestElement.testMoveDown(com.quadrivium.g13.model.TestElement)</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>7.<span><b>7</b><br/><b>Location : </b>setPosition<br/><b>Killed by : </b>com.quadrivium.g13.model.TestElement.testMoveDown(com.quadrivium.g13.model.TestElement)</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>8.<span><b>8</b><br/><b>Location : </b>setPosition<br/><b>Killed by : </b>com.quadrivium.g13.model.TestElement.testMoveDown(com.quadrivium.g13.model.TestElement)</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5b1e5366_20'>20</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5b1e5366_20'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>moveUp<br/><b>Killed by : </b>none</span></span> Replaced integer subtraction with addition &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>moveUp<br/><b>Killed by : </b>none</span></span> mutated return of Object value for com/quadrivium/g13/model/Element::moveUp to ( if (x != null) null else throw new RuntimeException ) &rarr; SURVIVED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5b1e5366_23'>23</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5b1e5366_23'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>moveDown<br/><b>Killed by : </b>none</span></span> Replaced integer addition with subtraction &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>moveDown<br/><b>Killed by : </b>none</span></span> mutated return of Object value for com/quadrivium/g13/model/Element::moveDown to ( if (x != null) null else throw new RuntimeException ) &rarr; SURVIVED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5b1e5366_26'>26</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5b1e5366_26'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>moveRight<br/><b>Killed by : </b>none</span></span> Replaced integer addition with subtraction &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>moveRight<br/><b>Killed by : </b>none</span></span> mutated return of Object value for com/quadrivium/g13/model/Element::moveRight to ( if (x != null) null else throw new RuntimeException ) &rarr; SURVIVED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5b1e5366_29'>29</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5b1e5366_29'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>moveLeft<br/><b>Killed by : </b>none</span></span> Replaced integer subtraction with addition &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>moveLeft<br/><b>Killed by : </b>none</span></span> mutated return of Object value for com/quadrivium/g13/model/Element::moveLeft to ( if (x != null) null else throw new RuntimeException ) &rarr; SURVIVED</p> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+
+<li class='mutator'>INCREMENTS_MUTATOR</li>
+
+<li class='mutator'>VOID_METHOD_CALL_MUTATOR</li>
+
+<li class='mutator'>RETURN_VALS_MUTATOR</li>
+
+<li class='mutator'>MATH_MUTATOR</li>
+
+<li class='mutator'>NEGATE_CONDITIONALS_MUTATOR</li>
+
+<li class='mutator'>INVERT_NEGS_MUTATOR</li>
+
+<li class='mutator'>CONDITIONALS_BOUNDARY_MUTATOR</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>com.quadrivium.g13.model.TestElement.testMoveRight(com.quadrivium.g13.model.TestElement) (0 ms)</li><li>com.quadrivium.g13.controller.TestPlayerOutOfBounds.negativeX(com.quadrivium.g13.controller.TestPlayerOutOfBounds) (1 ms)</li><li>com.quadrivium.g13.model.TestSector.getColor(com.quadrivium.g13.model.TestSector) (1 ms)</li><li>com.quadrivium.g13.controller.TestPlayerOutOfBounds.yTooBig(com.quadrivium.g13.controller.TestPlayerOutOfBounds) (0 ms)</li><li>com.quadrivium.g13.model.TestWall.getString(com.quadrivium.g13.model.TestWall) (0 ms)</li><li>com.quadrivium.g13.model.TestElement.testMoveDown(com.quadrivium.g13.model.TestElement) (0 ms)</li><li>com.quadrivium.g13.model.TestLevelManager.getLevel(com.quadrivium.g13.model.TestLevelManager) (1 ms)</li><li>com.quadrivium.g13.controller.TestInputMCPCone.moveRight(com.quadrivium.g13.controller.TestInputMCPCone) (1 ms)</li><li>com.quadrivium.g13.model.TestSector.getString(com.quadrivium.g13.model.TestSector) (0 ms)</li><li>com.quadrivium.g13.model.TestPlayer.getLives(com.quadrivium.g13.model.TestPlayer) (1 ms)</li><li>com.quadrivium.g13.model.TestPlayer.startingXTooHigh(com.quadrivium.g13.model.TestPlayer) (1 ms)</li><li>com.quadrivium.g13.controller.TestLevelChanges.menuToBT(com.quadrivium.g13.controller.TestLevelChanges) (1 ms)</li><li>com.quadrivium.g13.model.TestLevelManager.getPlayer(com.quadrivium.g13.model.TestLevelManager) (1 ms)</li><li>com.quadrivium.g13.model.TestPlayer.getStartingPos(com.quadrivium.g13.model.TestPlayer) (0 ms)</li><li>com.quadrivium.g13.model.TestWall.getColor(com.quadrivium.g13.model.TestWall) (1 ms)</li><li>com.quadrivium.g13.controller.TestInputMenu.moveRight(com.quadrivium.g13.controller.TestInputMenu) (2 ms)</li><li>com.quadrivium.g13.controller.TestInputLightCycles.moveLeft(com.quadrivium.g13.controller.TestInputLightCycles) (2 ms)</li><li>com.quadrivium.g13.controller.TestLevelChanges.loseToMenu(com.quadrivium.g13.controller.TestLevelChanges) (3 ms)</li><li>com.quadrivium.g13.controller.TestLevelChanges.menuToMCPC(com.quadrivium.g13.controller.TestLevelChanges) (1 ms)</li><li>com.quadrivium.g13.controller.TestInputIOTower.moveDown(com.quadrivium.g13.controller.TestInputIOTower) (1 ms)</li><li>com.quadrivium.g13.controller.TestPlayerOutOfBounds.negativeY(com.quadrivium.g13.controller.TestPlayerOutOfBounds) (1 ms)</li><li>com.quadrivium.g13.controller.TestInputLightCycles.moveRight(com.quadrivium.g13.controller.TestInputLightCycles) (2 ms)</li><li>com.quadrivium.g13.controller.TestInputMCPCone.moveLeft(com.quadrivium.g13.controller.TestInputMCPCone) (0 ms)</li><li>com.quadrivium.g13.controller.TestLevelChanges.menuToIOT(com.quadrivium.g13.controller.TestLevelChanges) (2 ms)</li><li>com.quadrivium.g13.controller.TestLevelChanges.winToMenu(com.quadrivium.g13.controller.TestLevelChanges) (1 ms)</li><li>com.quadrivium.g13.model.TestElement.testMoveLeft(com.quadrivium.g13.model.TestElement) (1 ms)</li><li>com.quadrivium.g13.model.TestPlayer.startingYTooHigh(com.quadrivium.g13.model.TestPlayer) (1 ms)</li><li>com.quadrivium.g13.controller.TestInputIOTower.moveRight(com.quadrivium.g13.controller.TestInputIOTower) (0 ms)</li><li>com.quadrivium.g13.controller.TestLevelChanges.menuToLC(com.quadrivium.g13.controller.TestLevelChanges) (2 ms)</li><li>com.quadrivium.g13.controller.TestInputBattleTanks.moveLeft(com.quadrivium.g13.controller.TestInputBattleTanks) (1 ms)</li><li>com.quadrivium.g13.controller.TestLevelChanges.controlsToMenu(com.quadrivium.g13.controller.TestLevelChanges) (4 ms)</li><li>com.quadrivium.g13.model.TestEnemyFactory.createLCEnemy(com.quadrivium.g13.model.TestEnemyFactory) (8 ms)</li><li>com.quadrivium.g13.controller.TestInputMCPCone.moveUp(com.quadrivium.g13.controller.TestInputMCPCone) (1 ms)</li><li>com.quadrivium.g13.controller.TestInputBattleTanks.moveRight(com.quadrivium.g13.controller.TestInputBattleTanks) (1 ms)</li><li>com.quadrivium.g13.controller.TestInputIOTower.moveLeft(com.quadrivium.g13.controller.TestInputIOTower) (1 ms)</li><li>com.quadrivium.g13.controller.TestPlayerOutOfBounds.xTooBig(com.quadrivium.g13.controller.TestPlayerOutOfBounds) (1 ms)</li><li>com.quadrivium.g13.controller.TestInputBattleTanks.moveDown(com.quadrivium.g13.controller.TestInputBattleTanks) (1 ms)</li><li>com.quadrivium.g13.controller.TestInputIOTower.moveUp(com.quadrivium.g13.controller.TestInputIOTower) (1 ms)</li><li>com.quadrivium.g13.controller.TestInputBattleTanks.moveUp(com.quadrivium.g13.controller.TestInputBattleTanks) (1 ms)</li><li>com.quadrivium.g13.model.TestPlayer.startingXTooLow(com.quadrivium.g13.model.TestPlayer) (0 ms)</li><li>com.quadrivium.g13.controller.TestLevelChanges.iotToMenu(com.quadrivium.g13.controller.TestLevelChanges) (4 ms)</li><li>com.quadrivium.g13.controller.TestInputMenu.moveDown(com.quadrivium.g13.controller.TestInputMenu) (4 ms)</li><li>com.quadrivium.g13.model.TestEnemyFactory.createBTEnemy(com.quadrivium.g13.model.TestEnemyFactory) (0 ms)</li><li>com.quadrivium.g13.controller.TestInputMCPCone.moveDown(com.quadrivium.g13.controller.TestInputMCPCone) (1 ms)</li><li>com.quadrivium.g13.model.TestBullet.testBulletDirection(com.quadrivium.g13.model.TestBullet) (1 ms)</li><li>com.quadrivium.g13.controller.TestInputLightCycles.moveDown(com.quadrivium.g13.controller.TestInputLightCycles) (2 ms)</li><li>com.quadrivium.g13.model.TestPlayer.startingYTooLow(com.quadrivium.g13.model.TestPlayer) (0 ms)</li><li>com.quadrivium.g13.controller.TestLevelChanges.mcpcToMenu(com.quadrivium.g13.controller.TestLevelChanges) (3 ms)</li><li>com.quadrivium.g13.controller.TestInputMenu.moveLeft(com.quadrivium.g13.controller.TestInputMenu) (2 ms)</li><li>com.quadrivium.g13.controller.TestInputMenu.moveUp(com.quadrivium.g13.controller.TestInputMenu) (3 ms)</li><li>com.quadrivium.g13.controller.BattleTanksControllerTest.enemyCollide(com.quadrivium.g13.controller.BattleTanksControllerTest) (489 ms)</li><li>com.quadrivium.g13.controller.LightCyclesTest.enemyCollide(com.quadrivium.g13.controller.LightCyclesTest) (156 ms)</li><li>com.quadrivium.g13.model.TestElement.testMoveUp(com.quadrivium.g13.model.TestElement) (0 ms)</li><li>com.quadrivium.g13.controller.TestInputLightCycles.moveUp(com.quadrivium.g13.controller.TestInputLightCycles) (1 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='http://pitest.org'>PIT</a> 1.4.3
+
+</body>
+</html>

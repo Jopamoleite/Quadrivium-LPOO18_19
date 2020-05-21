@@ -15,7 +15,7 @@ public abstract class LanternaGameView {
     public KeyPress processKey() throws IOException {
         KeyStroke key;
         key = GameScreen.getScreen().pollInput();
-        if (key == null) {
+        if(key == null){
             return KeyPress.NO_KEY;
         }
         switch (key.getKeyType()) {
@@ -32,15 +32,17 @@ public abstract class LanternaGameView {
             case Escape:
                 return KeyPress.EXIT;
             case Character:
-                if (key.getCharacter() == 'W' || key.getCharacter() == 'w')
+                if(key.getCharacter() == 'W' || key.getCharacter() == 'w')
                     return KeyPress.W;
-                if (key.getCharacter() == 'A' || key.getCharacter() == 'a')
+                if(key.getCharacter() == 'A' || key.getCharacter() == 'a')
                     return KeyPress.A;
-                if (key.getCharacter() == 'S' || key.getCharacter() == 's')
+                if(key.getCharacter() == 'S' || key.getCharacter() == 's')
                     return KeyPress.S;
-                if (key.getCharacter() == 'D' || key.getCharacter() == 'd')
+                if(key.getCharacter() == 'D' || key.getCharacter() == 'd')
                     return KeyPress.D;
                 break;
+            case EOF:
+                return KeyPress.EOF;
         }
 
         return KeyPress.NO_KEY;
@@ -49,8 +51,7 @@ public abstract class LanternaGameView {
     public void refreshScreen() throws IOException {
         GameScreen.getScreen().refresh();
     }
-
-    public void clearScreen() {
+    public void clearScreen(){
         GameScreen.getScreen().newTextGraphics().setBackgroundColor(TextColor.Factory.fromString("#000000"));
         GameScreen.getScreen().newTextGraphics().fillRectangle(new TerminalPosition(0, 0), new TerminalSize(GameDimensions.getWidth(), GameDimensions.getHeight()), ' ');
     }

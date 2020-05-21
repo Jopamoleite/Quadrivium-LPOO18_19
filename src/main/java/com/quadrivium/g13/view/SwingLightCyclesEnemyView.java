@@ -11,25 +11,24 @@ import java.io.IOException;
 import java.net.URL;
 
 public class SwingLightCyclesEnemyView extends JComponent implements LightCyclesEnemyView {
-    Position position;
+    private Position position;
 
     @Override
-    protected void paintComponent(Graphics graphics) {
+    protected void paintComponent(Graphics graphics){
         super.paintComponent(graphics);
 
 
         URL resource = GameJFrame.getJframe().getClass().getResource("/Enemy.png");
         BufferedImage image = null;
-        try {
+        try{
             image = ImageIO.read(resource);
-        } catch (IOException e) {
-        }
+        } catch (IOException ignored) {}
 
-        graphics.drawImage(image, position.getX() * 8, position.getY() * 16, null);
+        graphics.drawImage(image, position.getX()*8, position.getY()*16,null);
 
     }
 
-    public void draw(Position position) {
+    public void draw(Position position){
         this.position = position;
         GameJFrame.getJframe().getContentPane().add(this);
         paintComponents(GameJFrame.getJframe().getGraphics());

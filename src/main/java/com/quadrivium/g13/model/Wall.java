@@ -1,13 +1,14 @@
 package com.quadrivium.g13.model;
 
-public class Wall extends Element {
+import com.quadrivium.g13.exceptions.OutOfBoundsException;
+
+public class Wall extends Element{
     private String color;
     private String wallStr;
 
-    public Wall() {
-    }
+    public Wall(){}
 
-    public Wall(Position position) {
+    public Wall(Position position) throws OutOfBoundsException {
         setPosition(position);
     }
 

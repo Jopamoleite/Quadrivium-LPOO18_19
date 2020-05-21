@@ -7,11 +7,8 @@ import java.io.IOException;
 import java.util.List;
 
 public interface LightCyclesView {
-    void draw(List<Wall> walls, List<Wall> trails, List<Wall> enemyTrails);
-
+    void draw(List<Wall> walls, List<Wall> trails, List<Wall> enemyTrails, int score);
     KeyPress processKey() throws IOException;
-
     void refreshScreen() throws IOException;
-
     void clearScreen();
 }

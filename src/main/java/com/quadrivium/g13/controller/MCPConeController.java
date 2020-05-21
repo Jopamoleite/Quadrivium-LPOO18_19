@@ -1,21 +1,24 @@
 package com.quadrivium.g13.controller;
 
+import com.quadrivium.g13.exceptions.OutOfBoundsException;
 import com.quadrivium.g13.model.*;
+import com.quadrivium.g13.view.LanternaMenuView;
 import com.quadrivium.g13.view.MCPConeView;
+import com.quadrivium.g13.view.SwingMenuView;
 
 import java.io.IOException;
 
-public class MCPConeController implements GameController {
+public class MCPConeController implements GameController{
 
     private MCPCone model;
     private MCPConeView view;
 
-    public MCPConeController(MCPCone model, MCPConeView view) {
+    public MCPConeController(MCPCone model, MCPConeView view){
         this.model = model;
         this.view = view;
     }
 
-    public PlayerController getPlayer() {
+    public PlayerController getPlayer(){
         return model.getPlayer();
     }
 
@@ -29,22 +32,17 @@ public class MCPConeController implements GameController {
         model.getPlayer().draw();
     }
 
-    @Override
-    public void update() {
-
+    private boolean canPlayerMove(Position position){
+        return !(position.getX() >= (GameDimensions.getWidth()-1) || position.getX()<=0 || position.getY() >= (GameDimensions.getHeight()-1) || position.getY()<=0);
     }
 
-    public boolean canPlayerMove(Position position) {
-        return !(position.getX() >= (GameDimensions.getWidth() - 1) || position.getX() <= 0 || position.getY() >= (GameDimensions.getHeight() - 1) || position.getY() <= 0);
-    }
-
-    public void movePlayer(Position position) {
-        if (canPlayerMove(position)) {
+    private void movePlayer(Position position) throws OutOfBoundsException {
+        if(canPlayerMove(position)) {
             model.getPlayer().setPosition(position);
         }
     }
 
-    public void handleKey(KeyPress key) {
+    void handleKey(KeyPress key) throws OutOfBoundsException {
         switch (key) {
             case UP:
                 movePlayer(model.getPlayer().moveUp());
@@ -62,8 +60,14 @@ public class MCPConeController implements GameController {
     }
 
     @Override
-    public boolean checkEnter(KeyPress key, CurrentLevel level) {
-        if (key == KeyPress.ENTER) {
+    public boolean checkEnter(KeyPress key, CurrentLevel level) throws OutOfBoundsException {
+        if(key == KeyPress.ENTER){
+            if(GameDimensions.isSwing()){
+                level.setActiveGame(new MenuController(new Menu(), new SwingMenuView()));
+            }
+            else{
+                level.setActiveGame(new MenuController(new Menu(), new LanternaMenuView()));
+            }
             return true;
         }
 
@@ -72,30 +76,30 @@ public class MCPConeController implements GameController {
 
 
     @Override
-    public GameResult play(CurrentLevel level) throws IOException, InterruptedException {
-        while (true) {
+    public GameResult play(CurrentLevel level) throws IOException, InterruptedException, OutOfBoundsException {
+        while(true){
             view.clearScreen();
             draw();
             view.refreshScreen();
 
             KeyPress key;
-            if (GameDimensions.isSwing()) {
+            if(GameDimensions.isSwing()){
                 key = level.getKey();
-            } else {
+            } else{
                 key = view.processKey();
             }
 
-            if (key != null)
-                handleKey(key);
+            if(key!=null)
+            handleKey(key);
 
-            if (checkEnter(key, level))
+            if(checkEnter(key, level))
                 break;
 
-            if (key == KeyPress.EXIT) {
+            if (key == KeyPress.EXIT || key == KeyPress.EOF){
                 return GameResult.EXIT;
             }
-            Thread.sleep(1000 / 30);
+            Thread.sleep(1000/30);
         }
-        return GameResult.WIN;
+        return GameResult.PROCEED;
     }
 }

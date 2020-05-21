@@ -13,10 +13,6 @@ public class LightCycles {
     private List<Wall> enemyTrails;
     private Direction currentDirection;
 
-    public LightCycles() {
-        currentDirection = Direction.DOWN;
-    }
-
     public List<Wall> getTrails() {
         return trails;
     }
@@ -41,6 +37,17 @@ public class LightCycles {
         this.enemy = enemy;
     }
 
+    public enum Direction {
+        UP,
+        RIGHT,
+        DOWN,
+        LEFT
+    }
+
+    public LightCycles() {
+        currentDirection = Direction.DOWN;
+    }
+
     public PlayerController getPlayer() {
         return player;
     }
@@ -63,12 +70,5 @@ public class LightCycles {
 
     public void setMapWalls(List<Wall> mapWalls) {
         this.mapWalls = mapWalls;
-    }
-
-    public enum Direction {
-        UP,
-        RIGHT,
-        DOWN,
-        LEFT
     }
 }

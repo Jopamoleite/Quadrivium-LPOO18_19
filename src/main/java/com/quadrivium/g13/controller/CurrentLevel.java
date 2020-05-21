@@ -1,5 +1,6 @@
 package com.quadrivium.g13.controller;
 
+import com.quadrivium.g13.exceptions.OutOfBoundsException;
 import com.quadrivium.g13.model.Controls;
 import com.quadrivium.g13.model.GameDimensions;
 import com.quadrivium.g13.model.GameJFrame;
@@ -15,13 +16,14 @@ public class CurrentLevel {
     private PlayerController player;
     private SwingLevelView view;
 
-    public CurrentLevel() {
+    public CurrentLevel() throws OutOfBoundsException {
         ControlsView menuView;
-        if (GameDimensions.isSwing()) {
+        if(GameDimensions.isSwing()) {
             view = new SwingLevelView();
             GameJFrame.getJframe().addKeyListener(view);
             menuView = new SwingControlsView();
-        } else
+        }
+        else
             menuView = new LanternaControlsView();
         Controls menuModel = new Controls();
         this.activeGame = new ControlsController(menuModel, menuView);
@@ -31,7 +33,7 @@ public class CurrentLevel {
         return activeGame;
     }
 
-    public void setActiveGame(GameController activeGame) {
+    public void setActiveGame(GameController activeGame) throws OutOfBoundsException {
         this.activeGame = activeGame;
         this.player.resetPosition();
         this.activeGame.setPlayer(player);
@@ -45,7 +47,7 @@ public class CurrentLevel {
         this.player = player;
     }
 
-    public KeyPress getKey() {
+    public KeyPress getKey(){
         return view.getAndResetKey();
     }
 
